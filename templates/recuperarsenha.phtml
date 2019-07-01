@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo(getenv('SISTEM_NAME')); ?> | Esqueceu sua senha?</title>
+    <link rel="shortcut icon" href="<?php echo(getenv('FAVICOM_PATH')); ?>">
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+</head>
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+    <div class="login_wrapper">
+        <div class="animate bounceInDown form login_form">
+            <section class="login_content">
+                <div class="row">
+                    <img src="<?php echo(getenv('LOGO_IMAGE_PATH')); ?>" alt="Contratos">
+                    <p id="titulo"><span><?php echo(getenv('SISTEM_NAME')); ?></span></p>
+                </div>
+                <form role="form" method="post" action="">
+                    <h1 id="titulo-esqueceu-senha">Esqueceu sua senha?</h1>
+                    <div class="alert alert-danger hidden" role="alert" style="margin-top: 10px;"></div>
+                    <p><span>A gente envia um email para você redefinir sua senha. Se ele não chegar em alguns minutos, consulte sua caixa de spam.</span><br><br></p>
+                    <div class="form-group has-feedback">
+                        <input type="email" class="form-control" placeholder="Email" required autofocus name="email">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div>
+                        <button class="btn btn-default btn-lg" type="submit">Redefinir senha</button>
+                    </div>
+                    <br>
+                    <div class="clearfix"></div>
+                    <div class="separator">
+                        <p class="change_link">
+                            <a class="" href="login">Lembrou! Acesse já.</a>
+                        </p>
+                        <p>©2019 Desenvolvido por <a href="<?php echo(getenv('COPYRIGHT_URL')); ?>" title="<?php echo(getenv('COPYRIGHT_COMPANY')); ?>" target="_blank" class="animated-title" style="color:#0856A1;font-weight:bold">
+                                MadeiraMadeira <img src="<?php echo(getenv('LOGO26X26_IMAGE_PATH')); ?>" class="animated-logo"></a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+body {
+    color: #000000;
+    background: #bb0e0e;
+}
+.left_col {
+  background: #bb0e0e; }
+
+  .nav_title {
+  background: #bb0e0e;}
+
+  .nav.side-menu > li.current-page, .nav.side-menu > li.active {
+  border-right: 5px solid #C64A4A; }
+
+  .nav-sm .nav.child_menu li.active,
+.nav-sm .nav.side-menu li.active-sm {
+  border-right: 5px solid #C64A4A; }
+
+  .nav.side-menu > li.active > a {
+  background: linear-gradient(#7B0909, #3B0404), #7B0909;}
+
+.navbar-brand, .navbar-nav > li > a {
+  color: #254057 !important;}
+
+.nav-md ul.nav.child_menu li:before {
+    background: #E7E7E7; }
+
+.nav-md ul.nav.child_menu li:after {
+    background: #E7E7E7; }
+
+.nav-md ul.nav.child_menu li:after {
+  border-left: 1px solid #E7E7E7; }
+
+  .sidebar-footer {
+    background: #7B0909;}
+  .sidebar-footer a {
+    background: #3B0404;
+    color: #E7E7E7;}
+  .sidebar-footer a:hover {
+    background: #7B0909;
+    color: #E7E7E7;}

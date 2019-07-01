@@ -1,0 +1,135 @@
+<?php
+// Declaração dos Javascripts e Css adicionais para o funcionamento da funcionalidade
+// JavaScript adicional -->
+$adicionalJs = [];
+array_push($adicionalJs, "vendors/bootstrap/dist/js/bootstrap.min.js");
+array_push($adicionalJs, "vendors/datatables.net/js/jquery.dataTables.js");
+array_push($adicionalJs, "vendors/datatables.net-bs/js/dataTables.bootstrap.min.js");
+array_push($adicionalJs, "vendors/datatables.net-buttons/js/dataTables.buttons.min.js");
+array_push($adicionalJs, "vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js");
+array_push($adicionalJs, "vendors/datatables.net-buttons/js/buttons.flash.js");
+array_push($adicionalJs, "vendors/datatables.net-buttons/js/buttons.html5.js");
+array_push($adicionalJs, "vendors/datatables.net-buttons/js/buttons.print.js");
+array_push($adicionalJs, "vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js");
+array_push($adicionalJs, "vendors/datatables.net-keytable/js/dataTables.keyTable.min.js");
+array_push($adicionalJs, "vendors/datatables.net-responsive/js/dataTables.responsive.min.js");
+array_push($adicionalJs, "vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js");
+array_push($adicionalJs, "vendors/datatables.net-scroller/js/dataTables.scroller.min.js");
+array_push($adicionalJs, "vendors/jszip/dist/jszip.min.js");
+array_push($adicionalJs, "vendors/pdfmake/build/pdfmake.min.js");
+array_push($adicionalJs, "vendors/pdfmake/build/vfs_fonts.js");
+// CSS Adicional
+$adicionalCss = [];
+array_push($adicionalCss, "vendors/datatables.net-bs/css/dataTables.bootstrap.min.css");
+array_push($adicionalCss, "vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css");
+array_push($adicionalCss, "vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css");
+array_push($adicionalCss, "vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css");
+array_push($adicionalCss, "vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css");
+include("header.phtml");
+?>
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>
+                                <i class="fa fa-address-card" aria-hidden="true"></i>
+                                Uauário <small>Listar/Pesquisar</small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a href="manter"><i class="fa fa-plus-square"></i> Novo</a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <table id="lista-clientes" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                                <thead>
+                                <tr class="headings">
+                                    <th>Nome </th>
+                                    <th>E-mail </th>
+                                    <th>Celular </th>
+                                    <th>Id Interno </th>
+                                    <th>Perfil </th>
+                                    <th>Status </th>
+                                    <th class="no-link last"><span class="nobr">Ações</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="even pointer">
+                                        <td class="">João Ninguém</td>
+                                        <td class="">joaoninguém@email.com</td>
+                                        <td class="">(41) 99999-9999</td>
+                                        <td class="">0001</td>
+                                        <td class="a-right">Administrador</td>
+                                        <td class="a-right">Ativo</td>
+                                        <td class="iconTableAjuste last">
+                                            <a href="manter/1" data-toggle="tooltip" title="Editar" data-placement="right">
+                                                <i class="fa fa-pencil-square"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+        <style type="text/css" media="screen">
+            @media screen and (max-width: 767px) {
+                div.dataTables_filter {
+                    text-align: center !important;
+                    float: inherit;
+                }
+            }
+        </style>
+        <script>
+            $(document).ready(function() {
+                var handleDataTableButtons = function() {
+                    if ($("#lista-clientes").length) {
+                        $("#lista-clientes").DataTable({
+                            "pageLength": 25,
+                            "lengthMenu": [ 25, 50,  75, 100 ],
+                            dom: "Blfrtip",
+                            buttons: [
+                                {
+                                    extend: "copy",
+                                    className: "btn-sm"
+                                },
+                                {
+                                    extend: "csv",
+                                    className: "btn-sm"
+                                },
+                                {
+                                    extend: "excel",
+                                    className: "btn-sm"
+                                },
+                                {
+                                    extend: "pdfHtml5",
+                                    className: "btn-sm"
+                                },
+                                {
+                                    extend: "print",
+                                    className: "btn-sm"
+                                },
+                            ],
+                            responsive: true
+                        });
+                    }
+                };
+                TableManageButtons = function() {
+                    "use strict";
+                    return {
+                        init: function() {
+                            handleDataTableButtons();
+                        }
+                    };
+                }();
+                TableManageButtons.init();
+            });
+        </script>
+<?php include("footer.phtml"); ?>

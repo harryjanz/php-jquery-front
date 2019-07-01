@@ -1,0 +1,354 @@
+<?php
+// Declaração dos Javascripts e Css adicionais para o funcionamento da funcionalidade
+// JavaScript adicional -->
+$adicionalJs = [];
+array_push($adicionalJs, "vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js");
+array_push($adicionalJs, "vendors/maskmoney/src/jquery.maskMoney.js");
+// CSS Adicional
+$adicionalCss = [];
+//array_push($adicionalCss, "vendors/datatables.net-bs/css/dataTables.bootstrap.min.css");
+include("header.phtml");
+?>
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>
+                                <i class="fa fa-address-card" aria-hidden="true"></i>
+                                Usuário<small>Cadastro</small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a href="<?=$baseUrl?>usuario/salvar"><i class="fa fa-plus-square"></i> Novo</a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <p style="text-transform: uppercase;">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                Ao cadastrar um usuário, este receberá por e-mail um link, através deste link será feita a ativação e o complemento do cadastro do mesmo.
+                            </p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- Dados de cadastro -->
+                        <div class="x_content">
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <form id="form-manter" class="form-horizontal form-label-left" enctype="multipart/form-data">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                CADASTRO:<small>Usuário do sistema</small>
+                                            </h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse"><i class="fa fa-clock-o"></i> Criado em: <?=date('d/m/Y H:i',strtotime("now"));?></a></li>
+                                                <li><a class="collapse"><i class="fa fa-clock-o"></i> Alterado em: <?=date('d/m/Y H:i',strtotime("now"));?></a></li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <!-- Campos credenciamento -->
+                                            <span class="section">Dados Gerais</span>
+                                            <input type="hidden" name="id" id="id" value="">
+                                            <input type="hidden" name="created_at" id="created_at" value="">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                <label for="cpf">CPF: <span class="required">*</span></label>
+                                                <input type="text" value="" id="cpf" name="cpf" required="required" class="form-control">
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                <label for="email">E-mail: <span class="required">*</span></label>
+                                                <input type="text" value="" id="email" name="email" maxlength="255" required="required" class="form-control">
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                                <label for="name">Nome: <span class="required">*</span></label>
+                                                <input type="text" value="" id="name" name="name" required="required" maxlength="255" class="form-control">
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                <label for="perfil">Perfil: <span class="required">*</span></label>
+                                                <select name="perfil" id="perfil" required="required" class="form-control">
+                                                    <option value='0'>Selecione</option>
+                                                    <option value='1'>Administrador</option>
+                                                    <option value='2'>Operador</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                <label for="fone_celular">Celular: <span class="required">*</span></label>
+                                                <input type="text" value="" id="fone_celular" name="fone_celular" required="required" class="form-control">
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                <label for="id_interno">ID Interno:</label>
+                                                <input type="text" value="" id="id_interno" name="id_interno" maxlength="150" class="form-control">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <br/>
+                                            <span class="section">Dados de Endereço</span>
+                                            <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                                                <label for="cep">CEP <span class="required">*</span></label>
+                                                <input type="text" value="" id="cep" name="cep" data-inputmask="'mask': '99.999-999'" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                            <div class="form-group col-md-9 col-sm-6 col-xs-12">
+                                                <label for="logradouro">Logradouro <span class="required">*</span></label>
+                                                <input type="text" value="" id="logradouro" name="logradouro" maxlength="255" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                            <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                                                <label for="numero">Número <span class="required">*</span></label>
+                                                <input type="text" value="" id="numero" name="numero" maxlength="45" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                            <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                                                <label for="complemento">Complemento</label>
+                                                <input type="text" value="" id="complemento" name="complemento" maxlength="45" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                <label for="bairro">Bairro <span class="required">*</span></label>
+                                                <input type="text" value="" id="bairro" name="bairro" maxlength="255" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                <label for="cidade">Cidade <span class="required">*</span></label>
+                                                <input type="text" value="" id="cidade" name="cidade" maxlength="255" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                <label for="uf">Estado/UF <span class="required">*</span></label>
+                                                <select name="uf" id="uf" required="required" class="form-control">
+                                                    <option value='0'>Selecione</option>
+                                                    <option value="AC">Acre</option>
+                                                    <option value="AL">Alagoas</option>
+                                                    <option value="AP">Amapá</option>
+                                                    <option value="AM">Amazonas</option>
+                                                    <option value="BA">Bahia</option>
+                                                    <option value="CE">Ceará</option>
+                                                    <option value="DF">Distrito Federal</option>
+                                                    <option value="ES">Espirito Santo</option>
+                                                    <option value="GO">Goiás</option>
+                                                    <option value="MA">Maranhão</option>
+                                                    <option value="MS">Mato Grosso do Sul</option>
+                                                    <option value="MT">Mato Grosso</option>
+                                                    <option value="MG">Minas Gerais</option>
+                                                    <option value="PA">Pará</option>
+                                                    <option value="PB">Paraíba</option>
+                                                    <option value="PR">Paraná</option>
+                                                    <option value="PE">Pernambuco</option>
+                                                    <option value="PI">Piauí</option>
+                                                    <option value="RJ">Rio de Janeiro</option>
+                                                    <option value="RN">Rio Grande do Norte</option>
+                                                    <option value="RS">Rio Grande do Sul</option>
+                                                    <option value="RO">Rondônia</option>
+                                                    <option value="RR">Roraima</option>
+                                                    <option value="SC">Santa Catarina</option>
+                                                    <option value="SP">São Paulo</option>
+                                                    <option value="SE">Sergipe</option>
+                                                    <option value="TO">Tocantins</option>
+                                                </select>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <br/>
+                                            <span class="section">Status</span>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                <input name="status" id="status" type="checkbox" class="js-switch"/> Ativo
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <br/>
+                                            <div class="form-group">
+                                                <button id="bot-salvar" type="button" class="btn btn-success">Salvar</button>
+                                                <button id="bot-linkacesso" type="button" class="btn btn-success"><i class="fa fa-envelope" aria-hidden="true"></i> Reenviar link de ativação</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Fim Dados de cadastro -->
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>
+                                            <i class="fa fa-info-circle" aria-hidden="true"></i> DICA:<small>COMO CADASTRAR UM USUÁRIO</small>
+                                        </h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <ul class="list-unstyled timeline">
+                                            <li>
+                                                <div class="block">
+                                                    <div class="tags">
+                                                        <a href="" class="tag">
+                                                            <span>Passo #1</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_content">
+                                                        <h2 class="title">
+                                                            <a>O que é Lorem Ipsum?</a>
+                                                        </h2>
+                                                        <p class="excerpt">
+                                                            Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="block">
+                                                    <div class="tags">
+                                                        <a href="" class="tag">
+                                                            <span>Passo #2</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_content">
+                                                        <h2 class="title">
+                                                            <a>Porque nós o usamos?</a>
+                                                        </h2>
+                                                        <p class="excerpt">
+                                                            É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="block">
+                                                    <div class="tags">
+                                                        <a href="" class="tag">
+                                                            <span>Passo #3</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_content">
+                                                        <h2 class="title">
+                                                            <a>De onde ele vem?</a>
+                                                        </h2>
+                                                        <p class="excerpt">
+                                                            Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico. Com mais de 2000 anos, suas raízes podem ser encontradas em uma obra de literatura latina clássica.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="block">
+                                                    <div class="tags">
+                                                        <a href="" class="tag">
+                                                            <span>Passo #4</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_content">
+                                                        <h2 class="title">
+                                                            <a>Porque nós o usamos?</a>
+                                                        </h2>
+                                                        <p class="excerpt">
+                                                            É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="block">
+                                                    <div class="tags">
+                                                        <a href="" class="tag">
+                                                            <span>Passo #5</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_content">
+                                                        <h2 class="title">
+                                                            <a>De onde ele vem?</a>
+                                                        </h2>
+                                                        <p class="excerpt">
+                                                            Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico. Com mais de 2000 anos, suas raízes podem ser encontradas em uma obra de literatura latina clássica.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+
+                $(document).ready(function () {
+
+                    /* Mascaras */
+                    $("#cpf").inputmask({mask: ['999.999.999-99'], keepStatic: true });
+                    $("#fone_celular").inputmask({mask: ['(99)9999-9999', '(99)99999-9999'], keepStatic: true });
+                    $(":input").inputmask();
+
+                    /* Busca de Endereço por CEP */
+                    $('#cep').on('blur', function() {
+                        $(".alert-dismissible-interno-2").hide().html("");
+                        $("#preloader").show();
+                        var valpostcode = $(this).val().replace(/[.,\-\/#!$%\^&\*;:{}=\-_`~()]/g,'');
+                        var uf = '';
+                        if(valpostcode == "" || valpostcode.length < 8) {
+                            $(this).val("").focus();
+                            msgPopOversInterna('danger',"<strong>CEP:</strong> Insisra um CEP válido e tente novamente.<br>",'2');
+                            $("#preloader").hide();
+                        }else{
+                            $.get('<?=$baseUrl?>republicavirtual.php?cep='+valpostcode, function( data ) {
+                                if(data.resultado == 1) {
+                                    console.log(data);
+                                    $('#logradouro').val(data.tipo_logradouro+" "+data.logradouro);
+                                    $('#numero').focus();
+                                    $('#bairro').val(data.bairro);
+                                    $('#cidade').val(data.cidade);
+                                    uf = data.uf;
+                                    $("#uf option[value='"+uf+"']").attr("selected","selected");
+                                    $("#preloader").hide();
+                                }else{
+                                    $('#logradouro').val("").focus();;
+                                    $('#bairro').val("");
+                                    $('#cidade').val("");
+                                    $("#uf option[value=0]").attr("selected","selected");
+                                    $("#preloader").hide();
+                                }
+                            });
+                        }
+                    });
+
+                    $("#bot-salvar").click(function(event) {
+                        $("#preloader").show();
+                        var datastring = $("#form-manter").serialize();
+                        $.ajax({
+                            type: "POST",
+                            url: "usuario/editar",
+                            data: datastring,
+                            dataType: "html",
+                            success: function(data) {
+                                obj = JSON.parse(data);
+                                formreset = false;
+                                $.scrollTo(".body");
+                                msgPopOvers(obj['status'],obj['mensagem'],formreset);
+                                $("#preloader").hide();
+                                console.log(obj['status']);
+                                if(obj['status'] == 'success') {
+                                    setInterval(function(){ window.location="usuario/manter/"+obj['id']; }, 2000);
+                                }
+                            },
+                            error: function() {
+                                alert('error handing here');
+                            }
+                        });
+                    });
+
+                    $("#bot-linkacesso").click(function(event) {
+                        $("#preloader").show();
+                        var datastring = $("#form-manter").serialize();
+                        $.ajax({
+                            type: "POST",
+                            url: "usuario/sendEmailAtivacao",
+                            data: datastring,
+                            dataType: "html",
+                            success: function(data) {
+                                obj = JSON.parse(data);
+                                $.scrollTo(".body");
+                                msgPopOvers(obj['status'],obj['mensagem'],false);
+                                $("#preloader").hide();
+                                if(obj['status'] == 'success') {
+                                    setInterval(function(){ window.location="usuario/manter/"; }, 2000);
+                                }
+                            },
+                            error: function() {
+                                alert('error handing here');
+                            }
+                        });
+                    });
+
+                });
+
+            </script>
+
+<?php include("footer.phtml"); ?>

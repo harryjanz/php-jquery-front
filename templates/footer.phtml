@@ -1,0 +1,57 @@
+        </div>
+        <!-- /page content -->
+    </div>
+</div>
+<!-- FastClick -->
+<script src="<?php echo($baseUrl); ?>vendors/fastclick/lib/fastclick.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- NProgress -->
+<script src="<?php echo($baseUrl); ?>vendors/nprogress/nprogress.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- Chart.js -->
+<script src="<?php echo($baseUrl); ?>vendors/Chart.js/dist/Chart.min.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- gauge.js -->
+<script src="<?php echo($baseUrl); ?>vendors/gauge.js/dist/gauge.min.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- bootstrap-progressbar -->
+<script src="<?php echo($baseUrl); ?>vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- iCheck -->
+<script src="<?php echo($baseUrl); ?>vendors/iCheck/icheck.min.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- Skycons -->
+<script src="<?php echo($baseUrl); ?>vendors/skycons/skycons.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- Flot -->
+<script src="<?php echo($baseUrl); ?>vendors/Flot/jquery.flot.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<script src="<?php echo($baseUrl); ?>vendors/Flot/jquery.flot.pie.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<script src="<?php echo($baseUrl); ?>vendors/Flot/jquery.flot.time.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<script src="<?php echo($baseUrl); ?>vendors/Flot/jquery.flot.stack.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<script src="<?php echo($baseUrl); ?>vendors/Flot/jquery.flot.resize.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- Flot plugins -->
+<script src="<?php echo($baseUrl); ?>vendors/flot.orderbars/js/jquery.flot.orderBars.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<script src="<?php echo($baseUrl); ?>vendors/DateJS/build/date.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<script src="<?php echo($baseUrl); ?>vendors/flot-spline/js/jquery.flot.spline.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<script src="<?php echo($baseUrl); ?>vendors/flot.curvedlines/curvedLines.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- jVectorMap -->
+<script src="<?php echo($baseUrl); ?>vendors/jqvmap/dist/jquery.vmap.min.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- bootstrap-daterangepicker -->
+<!-- <script src="vendors/moment/src/moment.js"></script> -->
+<script src="<?php echo($baseUrl); ?>vendors/bootstrap-daterangepicker/daterangepicker.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- Switchery -->
+<script src="<?php echo($baseUrl); ?>vendors/switchery/dist/switchery.min.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<!-- ifvisible contrle tempo de acesso -->
+<!-- <script src="vendors/ifvisible.js-master/src/ifvisible.min.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script> -->
+<!-- bootbox para confirm modal -->
+<script src="<?php echo($baseUrl); ?>vendors/bootstrap/js/bootbox.min.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+<?php
+if(isset($adicionalJs) && is_array($adicionalJs)) {
+    foreach ($adicionalJs as $script) {
+        ?>
+        <script src="<?php echo $folder.$script; ?>?<?php echo(getenv('SISTEM_TAG')); ?>" type="text/javascript"></script>
+        <?php
+    }
+}
+?>
+<!-- Custom Theme Scripts -->
+<script src="<?php echo($baseUrl); ?>build/js/custom.js?<?php echo(getenv('SISTEM_TAG')); ?>"></script>
+</body>
+</html>
+
+
+
+

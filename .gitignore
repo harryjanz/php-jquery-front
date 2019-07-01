@@ -1,6 +1,5 @@
-/logs/*
-!/logs/README.md
+logs/*
 composer.lock
 .idea/*
-public/vendor/*
+vendor/*
 .env
